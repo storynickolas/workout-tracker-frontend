@@ -6,8 +6,8 @@ function App() {
   const [workOut, setWorkOut] = useState([])
   const [options, setOptions] = useState([])
   const [page, setPage] = useState(1)
-  const [sunday, setSunday] = useState('Test')
-  const [monday, setMonday] = useState('Test')
+  const [sunday, setSunday] = useState([])
+  const [monday, setMonday] = useState(['Test', 'Test2', 'Test3'])
   const [tuesday, setTuesday] = useState('Test')
 
   useEffect(() => {
@@ -35,7 +35,7 @@ function App() {
 
   function handleSelect(e) {
     e.preventDefault();
-    let newState = e.target.value
+    let newState = options[e.target.value - 1].exercises
     setSunday(newState)
   }
 
@@ -46,12 +46,16 @@ function App() {
               {
                 options.map(abrev => {
                   return (
-                    <option key={abrev.id} value={abrev.name}> {abrev.name} </option>
+                    <option key={abrev.id} value={abrev.id}> {abrev.name} </option>
                 )
               })
             }
         </select>
-        <p>{sunday}</p>
+        <div>{sunday.map(abrev => {
+          return (
+            <p key={abrev.name}>{abrev.name}</p>
+          )
+        })}</div>
         <p>{monday}</p>
         <p>{tuesday}</p>
         {
