@@ -4,17 +4,30 @@ import React, { useEffect, useState } from 'react';
 
 function App() {
   const [workOut, setWorkOut] = useState('TEST')
+  const [page, setPage] = useState(1)
 
   useEffect(() => {
-    fetch("http://localhost:9292/")
+    fetch(`http://localhost:9292/${page}`)
       .then((r) => r.json())
       .then((data) =>setWorkOut(data[0].name))
-  })
+  }, [page])
+
+  const handleClick = () => {
+    let count
+    if(page === 3) {
+      count = 1
+    }
+    else {
+      count = page + 1
+    }
+    setPage(count)
+  }
 
   return (
     <div className="App">
       <header className="App-header">
         {workOut}
+        <button onClick={() => handleClick()}></button>
       </header>
     </div>
   );
