@@ -5,30 +5,29 @@ import Day from './Components/Day';
 
 function App() {
 
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
   return (
     <div className="App">
       <header className="App-header">
-
         <table>
             <thead>
             <tr>
-                <th>Monday</th>
-                <th>Tuesday</th>
-                <th>Wednesday</th>
+              {
+                days.map((item) => (
+                  <th key={item}>{item}</th>
+                ))
+              }
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>
-                  <Day />
-                </td>
-                <td>
-                  <Day />
-                </td>
-                <td>
-                  <Day />
-                </td>
-            </tr>
+              <tr>
+                {
+                  days.map((item) => (
+                    <td key={days.indexOf(item)}><Day /></td>
+                  ))
+                }
+              </tr>
             </tbody>
         </table>
       </header>
