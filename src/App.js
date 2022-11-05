@@ -51,11 +51,6 @@ function App() {
               })
             }
         </select>
-        <div>{sunday.map(abrev => {
-          return (
-            <p key={abrev.name}>{abrev.name}</p>
-          )
-        })}</div>
         <p>{monday}</p>
         <p>{tuesday}</p>
         {
@@ -64,6 +59,25 @@ function App() {
          ))
         }
         <button onClick={() => handleClick()}></button>
+        <table>
+            <thead>
+            <tr>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{sunday.map(abrev => {
+          return (
+            <p key={abrev.name}>{abrev.name}</p>
+          )
+        })}</td>
+                <td>TEXT2</td>
+            </tr>
+            </tbody>
+        </table>
       </header>
     </div>
   );
