@@ -65,6 +65,25 @@ function App() {
         }
         <button onClick={() => handleClick()}></button>
       </header>
+      <body>
+        <table>
+            <thead>
+            <tr>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>TEXT1</td>
+            </tr>
+            <tr>
+                <td>TEXT2</td>
+            </tr>
+            </tbody>
+        </table>
+      </body>
     </div>
   );
 }
